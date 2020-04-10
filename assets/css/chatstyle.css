@@ -1,0 +1,286 @@
+/*----------------------------------------共通部分-------------------------------------------------------*/
+main{
+    display: table;
+    width: 100%;
+}
+header{
+    position: absolute;
+}
+.container{
+    position: absolute;
+    height: 100%;
+    top: 0;
+}
+.talk-left{
+    left: 0;
+    width: 20%;
+    background-color: #888;
+    color: #fff;
+}
+.talk-right{
+    right: 0;
+    width: 80%;
+    overflow-y: scroll;
+}
+/*-------------------------------------トーク選択画面----------------------------------------------*/
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+table tr{
+    border-bottom: solid 1px #eee;
+    cursor: pointer;
+    position: relative;
+}
+table tr:hover{
+    background-color: #d4f0fd;
+}
+table th,table td{
+    text-align: center;
+    width: 25%;
+    padding: 15px 0;
+}
+table td.icon{
+    background-size: 35px;
+    background-position: left 5px center;
+    background-repeat: no-repeat;
+    padding-left: 0px;
+}
+img.charicon{
+    width: 30px;
+    height: 30px;
+    vertical-align: bottom;
+}
+.table-container label{
+    text-align: center;
+    height: 20px;
+}
+table tfoot{
+    bottom: 0;
+}
+
+/*----------------------------------------チャット画面-------------------------------------------------------*/
+.line_container {
+    font: 14px/21px "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #444; 
+    -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
+    -webkit-text-size-adjust: none;
+}
+/* タイトル部分 */
+.line_title {
+    background: #273246;
+    text-align: center;
+    padding: 10px;
+    font-size: 150%;
+    color: #ffffff;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    height: 15px;
+}
+/* 会話部分 */
+.line_contents {
+    margin: 20px 0 50px 0;
+    padding: 10px;
+    line-height: 135%;
+    overflow-y: auto;
+}
+/*.line_container .scroll {
+    height: 750px;
+    
+}*/
+/* スタンプ画像最大幅 */
+.line_container .stamp img {
+    max-width:120px;
+}
+/*---------------------------------------------チャット画面--------------------------------------------------*/
+/* 相手の会話 */
+.line_container .line__left {
+    position: relative;
+    display: block;
+    margin: 5px 0;
+    max-width: 75%;
+    float: left;
+    margin-left: 15px;
+    clear: both;
+    
+}
+
+/* 相手のアイコンの正方形を用意 */
+.line_container .line__left figure img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+/* 相手のアイコン画像 */
+.line_container .line__left figure {
+    width: 50px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+/* 相手のコメント吹き出し位置 */
+.line_container .line__left .line__left-text {
+  margin-left: 70px;
+}
+
+/* 相手のコメントのフォント */
+.line_container .line__left .line__left-text .name {
+  font-size: 80%;
+  color: #ffffff;
+}
+
+/* 相手のコメントエリア */
+.line_container .line__left .text {
+  margin: 0;
+  position: relative;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #ffffff;
+}
+
+/* 相手のコメント吹き出し */
+.line_container .line__left .text::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 10px;
+  border-right: 20px solid #ffffff;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* 既読エリア */
+.line_container .line__left .date {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100px;
+  text-align: left;
+  right: -110px;
+  bottom: 0px;
+  font-size: 80%;
+  color: #ffffff;
+}
+/*------------------------------------▲相手▲------------------------------------*/
+/* 自分の会話 */
+.line_container .line__right {
+    position: relative;
+    display: block;
+    margin: 5px 0;
+    max-width: 75%;
+    float: right;
+    margin-right: 15px;
+    clear: both;
+}
+
+/* 自分のコメントエリア */
+.line_container .line__right .text {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #8de055;
+  margin: 0;
+  margin-left: 80px;
+}
+
+/* 自分のコメント吹き出し */
+.line_container .line__right .text::after {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -10px;
+  top: 10px;
+  border-left: 20px solid #8de055;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+/* 自分がスタンプを送る時 */
+.line_container .line__right .stamp {
+  position: relative;
+  margin-left: 80px;
+}
+
+/* 既読エリア */
+.line_container .line__right .date {
+  content: '';
+  position: absolute;
+  display: block;
+  width: 100px;
+  text-align: right;
+  left: -30px;
+  bottom: 0px;
+  font-size: 80%;
+  color: #ffffff;
+}
+/*---------------------------------------------送信部分--------------------------------------------------*/  
+.send-area{
+    display: inline-block;
+}
+.line_send {
+    background: #ffffff;
+    padding: 10px;
+    text-align: left;
+    font-size: 100%;
+    width: 70%;
+    height: 50px;
+    border: 2px solid #008080;
+    color: #273246;
+    overflow: scroll;
+    /*resize: vertical;*/
+    border-radius: 10px;
+    position: fixed;
+    bottom: 0;
+}
+.line_send:focus{
+    outline: none;
+    border: 2px solid navy;
+    border-radius: 10px;
+}
+/* 送信ボタン*/
+.btn-right-radius {
+    font-weight: bold;
+    padding: 0.5em 2em;
+    text-decoration: none;
+    color: #00BCD4;
+    background: #ECECEC;
+    border-radius: 0 15px 15px 0;
+    transition: .4s;
+    position: fixed;
+    bottom: 0;
+} 
+/* 送信ボタン(マウスオーバー) */
+.btn-right-radius:hover {
+    background: #008080;
+} 
+/* 送信ボタン(マウスクリック) */
+  .btn-right-radius:active {
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+} 
+.far fa-grin{
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 30px;
+    width: 30px;
+}
+
+/*---------------------------------------------レスポンシブ--------------------------------------------------*/
+@media screen and (max-width:1024px) {
+    .container{
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+}

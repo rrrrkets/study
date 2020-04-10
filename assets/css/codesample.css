@@ -1,0 +1,288 @@
+/*.container {
+    margin: 0 auto;
+    text-align: left;
+  }
+  .container input {
+    display: none;
+  }
+  .container label {
+    color: #4776AF;
+    cursor: pointer;
+    padding: 0 10px;
+  }
+  .container label:hover {
+    color: #ccc;
+  }
+  .container .top {
+    padding: 10px;
+    background: #fff;
+  }
+  .container .btm {
+    height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+  }
+  .container .topbtn,
+  .container .btmbtn {
+    text-align: left;
+    display: block;
+    width: 80px;
+    margin: 0;
+  }
+  .container .topbtn2,
+  .container .btmbtn2 {
+    text-align: center;
+    display: block;
+    width: 80px;
+    margin: 0 auto;
+  }
+  .container input:checked + .btm {
+    margin-top: -36px;
+    height: auto;
+    padding: 0 10px 10px 10px;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+  }*/
+  .hidden_box {
+    margin: 2em 0;/*前後の余白*/
+    padding: 0;
+}
+
+/*ボタン装飾*/
+.hidden_box label {
+    padding: 15px;
+    font-weight: bold;
+    border: solid 2px black;
+    cursor :pointer;
+}
+
+/*ボタンホバー時*/
+.hidden_box label:hover {
+    background: #efefef;
+}
+
+/*チェックは見えなくする
+.hidden_box input {
+    display: none;
+}*/
+
+/*中身を非表示にしておく*/
+.hidden_box .hidden_show {
+    height: auto;
+    padding: 10px 0;
+    opacity: 1;
+    transition: 0.8s;
+}
+
+/*クリックで中身表示*/
+.hidden_box input:checked ~ .hidden_show {
+    padding: 0;
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    
+}
+
+body {
+	margin: 0;
+	background: url(/assets/img/bg.jpg);
+}
+.contents {
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+#navTgl:checked ~ .contents {
+	transform: translateX(250px);
+}
+
+/* :::::: toggle button :::::: */
+#navTgl {
+	display: none;
+}
+label {
+	cursor: pointer;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.open {
+	z-index: 2;
+	width: 48px;
+	height: 48px;
+	background: lightSeaGreen;
+	transition: background .6s, transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.open::before,
+.open::after {
+	content: "";
+}
+.open span,
+.open::before,
+.open::after {
+	content: "";
+	position: absolute;
+	top: calc(50% - 1px);
+	left: 30%;
+	width: 40%;
+	border-bottom: 2px solid white;
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.open::before {
+	transform: translateY(-8px);
+}
+.open::after {
+	transform: translateY(8px);
+}
+.close {
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+	transition: background .6s;
+}
+#navTgl:checked + .open {
+	background: indianRed;
+	transform: translateX(250px);
+}
+#navTgl:checked + .open span {
+	transform: scaleX(0);
+}
+#navTgl:checked + .open::before {
+	transform: rotate(45deg);
+}
+#navTgl:checked + .open::after {
+	transform: rotate(-45deg);
+}
+#navTgl:checked ~ .close {
+	pointer-events: auto;
+	background: rgba(0,0,0,.3);
+}
+
+/* :::::: drawer menu :::::: */
+.menu {
+	z-index: 1;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 100%;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.6);
+	transform: translateX(-100%);
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu h2,
+.menu a {
+	color: white;
+}
+.menu h2 {
+	text-align: center;
+}
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	font-size: .8em;
+	line-height: 1.4;
+}
+.menu li:not(:first-child) {
+	border-top: 1px solid rgba(255,255,255,.6);
+}
+.menu a {
+	display: block;
+	padding: 1em 2em;
+	text-decoration: inherit;
+	transition: background .6s;
+}
+.menu a:hover {
+	background: black;
+}
+#navTgl:checked ~ .menu {
+	transform: none;
+}
+
+/* :::::: header, footer :::::: */
+header,
+footer {
+	box-sizing: border-box;
+	text-align: center;
+}
+header .logo,
+footer .copyright {
+	margin: 0;
+	color: #553969;
+	font-family: "Ubuntu Condensed", sans-serif;
+	font-weight: 400;
+	line-height: 120px;
+	letter-spacing: .1em;
+}
+header {
+	position: relative;
+	margin-bottom: 40px;
+}
+footer {
+	background: rgba(255,255,255,.6);
+}
+footer small {
+	font-size: 1em;
+}
+
+/* :::::: article :::::: */
+article {
+	width: 100%;
+	max-width: 647px;
+	margin: 0 auto 100px;
+	padding: 0 10px;
+	box-sizing: border-box;
+}
+article h1 {
+	width: 7em;
+	height: 7em;
+	margin: 0 auto;
+	font-size: 1em;
+	line-height: 7em;
+	font-weight: normal;
+	text-align: center;
+	background: rgba(0,0,0,.05);
+	border-radius: 50%;
+}
+section {
+	margin: 4em 0;
+}
+section h2 {
+	margin: 0 0 .6em;
+}
+figure {
+	position: relative;
+	margin: 0;
+	padding-bottom: 3.6em;
+}
+figure img {
+	max-width: calc(100% - 10px);
+	margin-bottom: .8em;
+	padding: 5px;
+	vertical-align: middle;
+	background: rgba(255,255,255,.6);
+}
+figcaption {
+	font-size: .8em;
+}
+section .btn {
+	display: block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 1em 2em;
+	color: white;
+	background: lightSeaGreen;
+	text-align: center;
+	text-decoration: inherit;
+	transition: background .3s;
+}
+section .btn:hover {
+	background: indianRed;
+}
