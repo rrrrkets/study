@@ -11,12 +11,23 @@
 	/* transform: translateX(-300px); */
 	width: 100%;
 }
+/* タイトル部分 */
 header{
-    position: relative;
+    position: fixed;
+    top: 0;
     width: 100%;
+    height: 55px;
+    text-align: center;
+    background: #273246;
+    /* font-size: 150%; */
+    color: #ffffff;
+    z-index: 2;
 }
 footer{
-    
+    background-color: #8de055;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
 }
 /* ------------------------------------------各処理------------------------------------------ */
 .menu {
@@ -124,21 +135,10 @@ table tfoot{
     -webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
     -webkit-text-size-adjust: none;
 }
-/* タイトル部分 */
-.line_title {
-    background: #273246;
-    text-align: center;
-    padding: 10px;
-    font-size: 150%;
-    color: #ffffff;
-    position: fixed;
-    z-index: 3;
-    top: 0;
-    height: 15px;
-}
+
 /* 会話部分 */
 .line_contents {
-    margin: 20px 0 50px 0;
+    margin: 25px 0 50px 0;
     padding: 10px;
     line-height: 135%;
     overflow-y: auto;
@@ -281,9 +281,9 @@ table tfoot{
 }
 /*---------------------------------------------送信部分--------------------------------------------------*/  
 .send-area{
-    display: inline-block;
+    /* display: inline-block; */
 }
-.line_send {
+/* .line_send {
     background: #ffffff;
     padding: 10px;
     text-align: left;
@@ -293,7 +293,7 @@ table tfoot{
     border: 2px solid #008080;
     color: #273246;
     overflow: scroll;
-    /*resize: vertical;*/
+    resize: vertical;
     border-radius: 10px;
     position: fixed;
     bottom: 0;
@@ -302,9 +302,9 @@ table tfoot{
     outline: none;
     border: 2px solid navy;
     border-radius: 10px;
-}
+} */
 /* 送信ボタン*/
-.btn-right-radius {
+/* .btn-right-radius {
     font-weight: bold;
     padding: 0.5em 2em;
     text-decoration: none;
@@ -314,17 +314,17 @@ table tfoot{
     transition: .4s;
     position: fixed;
     bottom: 0;
-} 
+}  */
 /* 送信ボタン(マウスオーバー) */
-.btn-right-radius:hover {
+/* .btn-right-radius:hover {
     background: #008080;
-} 
+}  */
 /* 送信ボタン(マウスクリック) */
-  .btn-right-radius:active {
+  /* .btn-right-radius:active {
     -webkit-transform: translateY(4px);
     transform: translateY(4px);/*下に動く*/
-    border-bottom: none;/*線を消す*/
-} 
+    /* border-bottom: none;}/*線を消す*/
+
 .far fa-grin{
     position: fixed;
     right: 0;

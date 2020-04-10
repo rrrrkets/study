@@ -10,26 +10,27 @@
 </head>
 
 <body>
-  <form id="appChatMember" v-on:submit.prevent="onSubmit" onsubmit="return false;">
-    <input type="checkbox" id="navTgl">
-    <label for="navTgl" class="open"><span></span></label>
-    <label for="navTgl" class="close"></label>
-    <nav class="menu">
-        <h2>TALK</h2>
-        <ul>
-            <li><a class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</a></li>
-            <li><a class="icon"><img src="assets/images/charicon/c.png" class="charicon"> Ｃさん</a></li>
-            <li><a href="#">LOGOUT</a></li>
-        </ul>
-    </nav>
-  </form> 
+  <!-- 左側（チャット選択画面） -->
+  <input type="checkbox" id="navTgl">
+  <label for="navTgl" class="open"><span></span></label>
+  <label for="navTgl" class="close"></label>
+  <nav class="menu">
+      <h2>TALK</h2>
+      <form id="appChatMember" v-on:submit.prevent="onSubmit" onsubmit="return false;">
+      <ul>
+          <li><a class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</a></li>
+          <li><a class="icon"><img src="assets/images/charicon/c.png" class="charicon"> Ｃさん</a></li>
+          <li><a href="#">LOGOUT</a></li>
+      </ul>
+      </form>
+  </nav>
 
-<!-- 右側 -->
+  <!-- 右側 -->
   <div class="contents">
     <form id="appChatHist" v-on:submit.prevent="onSubmit">
       <header>
         <!-- タイトル -->
-        <div class="line_title">Ｂさんとのチャット</div>
+        Ｂさんとのチャット
       </header>
 
       <main>
@@ -39,6 +40,19 @@
           <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
           <div class="line_contents">
             <!-- 相手の吹き出し -->
+            <div class="line__left">
+              <figure><img src="assets/images/charicon/b.png" /></figure>
+              <div class="line__left-text">
+                <div class="name">Ｂさん</div>
+                <div class="text">よろしく！</div>
+              </div>
+              <span class="date">0:25</span>
+            </div>
+            <!-- 相手のスタンプ -->
+            <div class="line__left">
+              <div class="stamp"><img src="assets/images/stamp/1.png" /></div>
+              <span class="date">0:25</span>
+            </div>
             <div class="line__left">
               <figure><img src="assets/images/charicon/b.png" /></figure>
               <div class="line__left-text">
@@ -71,6 +85,14 @@
               <span class="date">0:30</span>
             </div>
             <!-- 自分のスタンプ -->
+            <div class="line__right">
+              <div class="stamp"><img src="assets/images/stamp/3.png" /></div>
+              <span class="date">0:30</span>
+            </div>
+            <div class="line__right">
+              <div class="stamp"><img src="assets/images/stamp/3.png" /></div>
+              <span class="date">0:30</span>
+            </div>
             <div class="line__right">
               <div class="stamp"><img src="assets/images/stamp/3.png" /></div>
               <span class="date">0:30</span>
