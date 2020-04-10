@@ -5,39 +5,37 @@
   <!-- スタイルシート -->
   <link rel="stylesheet" type="text/css" href="assets/css/chatstyle.css">
   <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/handle.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 </head>
 
 <body>
-  <header>
-    <p>header</p>
-  </header>
-  <main>
-    <!-- 左側 -->
-    <div class="container talk-left">
-      <form id="appChatMember" v-on:submit.prevent="onSubmit" onsubmit="return false;">
-       <div class="table-container">
-        <label for="label">トーク ≪</label>
-        <input type="checkbox" id="label1"/>
-        <table>
-          <tr>
-            <td class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</td>
-          </tr>
-          <tr>
-            <td class="icon"><img src="assets/images/charicon/c.png" class="charicon"/> Ｃさん</td>
-          </tr>
-          <tfoot><th><a href="https://www.google.com/?hl=ja">ログアウト</a></th></tfoot>
-        </table>
-      </div>
-     </form>
-    </div>
+  <form id="appChatMember" v-on:submit.prevent="onSubmit" onsubmit="return false;">
+    <input type="checkbox" id="navTgl">
+    <label for="navTgl" class="open"><span></span></label>
+    <label for="navTgl" class="close"></label>
+    <nav class="menu">
+        <h2>TALK</h2>
+        <ul>
+            <li><a class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</a></li>
+            <li><a class="icon"><img src="assets/images/charicon/c.png" class="charicon"> Ｃさん</a></li>
+            <li><a href="#">LOGOUT</a></li>
+        </ul>
+    </nav>
+  </form> 
+
 <!-- 右側 -->
-    <div class="container talk-right">
-      <form id="appChatHist" v-on:submit.prevent="onSubmit">
+  <div class="contents">
+    <form id="appChatHist" v-on:submit.prevent="onSubmit">
+      <header>
+        <!-- タイトル -->
+        <div class="line_title">Ｂさんとのチャット</div>
+      </header>
+
+      <main>
         <!-- ▼LINE風ここから -->
         <div class="line_container">
-          <!-- タイトル -->
-          <div class="line_title">Ｂさんとのチャット</div>
+          
           <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
           <div class="line_contents">
             <!-- 相手の吹き出し -->
@@ -79,17 +77,19 @@
             </div>
           </div>
           <!-- ▲会話エリア ここまで -->
-          <!-- ▲タイトル -->
         </div>
         <!--　▲LINE風ここまで -->
-      </form>
-      <!-- ▼送信エリア -->
-      <div class="send-area">
-        <input class="line_send" type="text" name="text" v-model="message" v-bind:class="message" placeholder="送信メッセージ">
-        <button type="submit"><i class="far fa-grin"></i></button>
-        <button class="btn-right-radius" v-on:click="doAddChatHist" v-bind:disabled="isDisabled">送信</button>
-      </div>
-        <!-- ▲送信エリア -->
-    </div>
-  </main>
+      </main>
+    </form>
+
+      <footer>
+        <!-- ▼送信エリア -->
+        <div class="send-area">
+          <input class="line_send" type="text" name="text" v-model="message" v-bind:class="message" placeholder="送信メッセージ">
+          <button type="submit"><i class="far fa-grin"></i></button>
+          <button class="btn-right-radius" v-on:click="doAddChatHist" v-bind:disabled="isDisabled">送信</button>
+        </div>
+          <!-- ▲送信エリア -->
+      </footer>
+  </div>
 </body>
