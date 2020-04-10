@@ -1,98 +1,15 @@
-/*.container {
-    margin: 0 auto;
-    text-align: left;
-  }
-  .container input {
-    display: none;
-  }
-  .container label {
-    color: #4776AF;
-    cursor: pointer;
-    padding: 0 10px;
-  }
-  .container label:hover {
-    color: #ccc;
-  }
-  .container .top {
-    padding: 10px;
-    background: #fff;
-  }
-  .container .btm {
-    height: 0;
-    overflow: hidden;
-    padding: 0 10px;
-  }
-  .container .topbtn,
-  .container .btmbtn {
-    text-align: left;
-    display: block;
-    width: 80px;
-    margin: 0;
-  }
-  .container .topbtn2,
-  .container .btmbtn2 {
-    text-align: center;
-    display: block;
-    width: 80px;
-    margin: 0 auto;
-  }
-  .container input:checked + .btm {
-    margin-top: -36px;
-    height: auto;
-    padding: 0 10px 10px 10px;
-    background: #fff;
-    position: relative;
-    z-index: 2;
-  }*/
-  .hidden_box {
-    margin: 2em 0;/*前後の余白*/
-    padding: 0;
-}
-
-/*ボタン装飾*/
-.hidden_box label {
-    padding: 15px;
-    font-weight: bold;
-    border: solid 2px black;
-    cursor :pointer;
-}
-
-/*ボタンホバー時*/
-.hidden_box label:hover {
-    background: #efefef;
-}
-
-/*チェックは見えなくする
-.hidden_box input {
-    display: none;
-}*/
-
-/*中身を非表示にしておく*/
-.hidden_box .hidden_show {
-    height: auto;
-    padding: 10px 0;
-    opacity: 1;
-    transition: 0.8s;
-}
-
-/*クリックで中身表示*/
-.hidden_box input:checked ~ .hidden_show {
-    padding: 0;
-    height: 0;
-    opacity: 0;
-    overflow: hidden;
-    
-}
-
 body {
 	margin: 0;
 	background: url(/assets/img/bg.jpg);
 }
 .contents {
-	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+	/* transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1); */
+	width: 70%;
+	margin: 0 0 0 auto;
 }
 #navTgl:checked ~ .contents {
-	transform: translateX(250px);
+	/* transform: translateX(-300px); */
+	width: 100%;
 }
 
 /* :::::: toggle button :::::: */
@@ -165,13 +82,13 @@ label {
 	overflow: auto;
 	top: 0;
 	left: 0;
-	width: 250px;
+	width: 30%;
 	height: 100%;
 	margin: 0;
 	padding: 10px;
 	box-sizing: border-box;
 	background: rgba(0,0,0,.6);
-	transform: translateX(-100%);
+	transform: translateX(0);
 	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .menu h2,
@@ -202,7 +119,9 @@ label {
 	background: black;
 }
 #navTgl:checked ~ .menu {
-	transform: none;
+	/* transform: none;
+	transform: translateX(-30%); */
+	display: none;
 }
 
 /* :::::: header, footer :::::: */

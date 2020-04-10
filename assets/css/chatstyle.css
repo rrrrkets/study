@@ -1,16 +1,73 @@
 /*----------------------------------------共通部分-------------------------------------------------------*/
-main{
+/* main{
     display: table;
     width: 100%;
+} */
+.contents{
+    width: 80%;
+    margin: 0 0 0 auto;
+}
+#navTgl:checked ~ .contents {
+	/* transform: translateX(-300px); */
+	width: 100%;
 }
 header{
-    position: absolute;
+    position: relative;
+    width: 100%;
 }
-.container{
-    position: absolute;
-    height: 100%;
-    top: 0;
+footer{
+    
 }
+/* ------------------------------------------各処理------------------------------------------ */
+.menu {
+	/* z-index: 1; */
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	width: 20%;
+	height: 100%;
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.6);
+	transform: translateX(0);
+	transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.menu h2,
+.menu a {
+	color: white;
+}
+.menu h2 {
+	text-align: center;
+}
+.menu ul {
+	margin: 0;
+	padding: 0;
+}
+.menu li {
+	font-size: .8em;
+	line-height: 1.4;
+}
+.menu li:not(:first-child) {
+	border-top: 1px solid rgba(255,255,255,.6);
+}
+.menu a {
+	display: block;
+	padding: 1em 2em;
+	text-decoration: inherit;
+	transition: background .6s;
+}
+.menu a:hover {
+	background: black;
+}
+#navTgl:checked ~ .menu {
+	/* transform: none;
+	transform: translateX(-30%); */
+	display: none;
+}
+
+
 .talk-left{
     left: 0;
     width: 20%;
