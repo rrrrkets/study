@@ -1,0 +1,53 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+  <title>TEST SITE1 with Layoutit!</title>
+  <!-- スタイルシート -->
+  <link rel="stylesheet" type="text/css" href="assets/css/test.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+</head>
+<body>
+  <div class="grid-container">
+    <!---------------------------------LeftSide--------------------------------->
+    
+    <!-- 非表示ここから -->
+    <div id="nav-drawer">
+      <input id="nav-input" type="checkbox" class="nav-unshown">　<!-- ハンバーガーメニュー -->
+      <label id="nav-open" for="nav-input"><span></span></label>
+      <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+      <div id="nav-content">
+        <div class="talk-head">
+          TALK
+        </div>
+        <div class="talk-member">
+          <table>
+            <tr>
+              <td class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</td>
+            </tr>
+            <tr>
+              <td class="icon"><img src="assets/images/charicon/c.png" class="charicon"/> Ｃさん</td>
+            </tr>
+          </table>
+        </div> 
+        <!-- 非表示ここまで -->
+        <div class="logout">
+          <a href="#">LOGOUT</a>
+        </div>
+      </div>
+    </div>
+    <!---------------------------------RightSide--------------------------------->
+    <div class="chat-title">
+      Bさんとのチャット
+    </div>
+    <div class="chat-area">
+      HEllo!
+    </div>
+    <div class="send-area">
+      <input class="line_send" type="text" name="text" v-model="message" v-bind:class="message" placeholder="送信メッセージ">
+      <button type="submit"><i class="far fa-grin">Stump</i></button>
+      <button class="btn-right-radius" v-on:click="doAddChatHist" v-bind:disabled="isDisabled">送信</button>
+    </div>
+  </div>
+</body>
+</html>
