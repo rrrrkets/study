@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/test.css">
   <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  
 </head>
 <body>
   <div class="grid-container">
@@ -44,7 +45,8 @@
       HEllo!
     </div>
     <div class="send-area">
-      <input class="line_send" type="text" name="text" v-model="message" v-bind:class="message" placeholder="送信メッセージ">
+      <textarea id="textarea" rows="1" style="line-height: 20px;"></textarea>
+        <script type="text/javascript" src="assets/js/test.js"></script>
       <button type="submit"><i class="far fa-grin">Stump</i></button>
       <button class="btn-right-radius" v-on:click="doAddChatHist" v-bind:disabled="isDisabled">送信</button>
     </div>

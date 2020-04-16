@@ -119,3 +119,17 @@ body{
     transform: translateX(0%);
     box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
 }
+#outer_box {
+    position: relative;
+    height: 500px;
+    background-color: aqua;
+  }
+  #textarea {
+    position: absolute;
+    width: 600px;
+    bottom: 0px;
+    line-height: 20px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+  }

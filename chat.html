@@ -12,7 +12,7 @@
 <body>
   <!-- 左側（チャット選択画面） -->
   <input type="checkbox" id="navTgl">
-  <label for="navTgl" class="open"><span></span></label>
+  <label for="navTgl" class="open"></label>
   <label for="navTgl" class="close"></label>
   <nav class="menu">
       <h2>TALK</h2>
@@ -20,9 +20,9 @@
       <ul>
           <li><a class="icon"><img src="assets/images/charicon/b.png" class="charicon"> Ｂさん</a></li>
           <li><a class="icon"><img src="assets/images/charicon/c.png" class="charicon"> Ｃさん</a></li>
-          <li><a href="#">LOGOUT</a></li>
       </ul>
       </form>
+      <a class="logout" href="index.html">LOGOUT</a>
   </nav>
 
   <!-- 右側 -->
@@ -30,13 +30,12 @@
     <form id="appChatHist" v-on:submit.prevent="onSubmit">
       <header>
         <!-- タイトル -->
-        Ｂさんとのチャット
+        <p>Ｂさんとのチャット</p>
       </header>
 
       <main>
         <!-- ▼LINE風ここから -->
         <div class="line_container">
-          
           <!-- ▼会話エリア scrollを外すと高さ固定解除 -->
           <div class="line_contents">
             <!-- 相手の吹き出し -->
@@ -84,7 +83,6 @@
               <div class="text">こちらこそ！<br>よろしくね！！</br></div>
               <span class="date">0:30</span>
             </div>
-            <!-- 自分のスタンプ -->
             <div class="line__right">
               <div class="stamp"><img src="assets/images/stamp/3.png" /></div>
               <span class="date">0:30</span>
@@ -102,16 +100,18 @@
         </div>
         <!--　▲LINE風ここまで -->
       </main>
+
     </form>
 
       <footer>
         <!-- ▼送信エリア -->
-        <div class="send-area">
-          <input class="line_send" type="text" name="text" v-model="message" v-bind:class="message" placeholder="送信メッセージ">
-          <button type="submit"><i class="far fa-grin"></i></button>
-          <button class="btn-right-radius" v-on:click="doAddChatHist" v-bind:disabled="isDisabled">送信</button>
-        </div>
-          <!-- ▲送信エリア -->
+        <form class="submitArea">
+          <textarea id = "ta" name="text" rows="1" placeholder="  送信メッセージ"></textarea>
+          <script type="text/javascript" src="assets/js/sample.js"></script>
+          <button type="submit" class="select-stamp"><i class="far fa-grin fa-2x"></i></button>
+          <button class="btn-submit" v-on:click="doAddChatHist" v-bind:disabled="isDisabled"><i class="far fa-paper-plane"> 送信</i></button>
+        </form>
+        <!-- ▲送信エリア -->
       </footer>
   </div>
 </body>
