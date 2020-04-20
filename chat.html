@@ -7,10 +7,26 @@
   <link rel="stylesheet" type="text/css" href="assets/css/foundation.css">
   <link rel="stylesheet" type="text/css" href="assets/css/handle.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
-
 <body>
-  <!-- 左側（チャット選択画面） -->
+  <!-- モーダル中身 -->
+  <div class="modal js-modal">
+    <div class="modal__bg modal-close"></div>
+    <div class="modal__content">
+      <div class="stamp_list">
+        <ul id="imgsList">
+          <li v-for="item in items">
+            <img v-bind:src="item" class="img-style">
+          </li>
+        </ul>
+      </div>
+        <br><a class="modal-close">✖</a>
+    </div><!-- modal__inner -->
+  </div>
+
+  <!-- チャット選択画面 -->
   <input type="checkbox" id="navTgl">
   <label for="navTgl" class="open"></label>
   <label for="navTgl" class="close"></label>
@@ -25,11 +41,11 @@
       <a class="logout" href="index.html">LOGOUT</a>
   </nav>
 
-  <!-- 右側 -->
+  <!-- メインチャット画面 -->
   <div class="contents">
     <form id="appChatHist" v-on:submit.prevent="onSubmit">
       <header>
-        <!-- タイトル -->
+        <!-- チャットタイトル -->
         <p>Ｂさんとのチャット</p>
       </header>
 
@@ -100,14 +116,13 @@
         </div>
         <!--　▲LINE風ここまで -->
       </main>
-
     </form>
 
       <footer>
         <!-- ▼送信エリア -->
         <form class="submitArea">
-          <textarea id = "ta" name="text" rows="1" placeholder="  送信メッセージ"></textarea>
-          <script type="text/javascript" src="assets/js/sample.js"></script>
+          <textarea id = "ta" name="text" placeholder="send messages..."></textarea>
+          <script type="text/javascript" src="assets/js/chatFunc.js"></script>
           <button type="submit" class="select-stamp"><i class="far fa-grin fa-2x"></i></button>
           <button class="btn-submit" v-on:click="doAddChatHist" v-bind:disabled="isDisabled"><i class="far fa-paper-plane"> 送信</i></button>
         </form>
